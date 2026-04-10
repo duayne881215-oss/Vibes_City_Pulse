@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no"
+    >
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <title>City Pulse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/map-notifications.css">
+    <link rel="stylesheet" href="./styles/profile-premium.css">
+    <link rel="stylesheet" href="./styles/activity-panel.css">
+    <link rel="stylesheet" href="./styles/story-creator-premium.css">
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #root {
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        overscroll-behavior: none;
+        background-color: #09090b;
+        color: #fafafa;
+      }
+
+      html {
+        background: #09090b;
+      }
+
+      body {
+        position: fixed;
+        inset: 0;
+        -webkit-text-size-adjust: 100%;
+        -webkit-overflow-scrolling: touch;
+        touch-action: manipulation;
+      }
+
+      #root {
+        isolation: isolate;
+      }
+
+      input,
+      textarea,
+      select,
+      button {
+        font: inherit;
+      }
+
+      .safe-area-bottom {
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>

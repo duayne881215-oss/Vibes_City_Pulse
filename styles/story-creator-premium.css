@@ -1,0 +1,105 @@
+/* Premium glass refinements for New Story modal */
+
+.story-modal{
+  /* keep glass + blur feel, but neutral/premium */
+  background:
+    radial-gradient(1200px 700px at 50% -10%, rgba(255,255,255,0.06), rgba(0,0,0,0) 55%),
+    rgba(0,0,0,0.72);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.story-add-btn{
+  position: relative;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+
+  /* Subtle blue outer glow (not filled) */
+  box-shadow:
+    0 0 0 1px rgba(120,170,255,0.10),
+    0 10px 30px rgba(0,0,0,0.35),
+    0 0 22px rgba(90,150,255,0.18);
+
+  transition: transform 160ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+  transform-origin: center;
+}
+
+/* very soft inner highlight on top */
+.story-add-btn::before{
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 14px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0.02) 45%, rgba(255,255,255,0.00));
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.story-add-btn:hover{
+  border-color: rgba(255,255,255,0.16);
+  box-shadow:
+    0 0 0 1px rgba(120,170,255,0.14),
+    0 12px 34px rgba(0,0,0,0.38),
+    0 0 30px rgba(90,150,255,0.26);
+}
+
+.story-add-btn:active{
+  transform: scale(0.985);
+  box-shadow:
+    0 0 0 1px rgba(120,170,255,0.16),
+    0 10px 28px rgba(0,0,0,0.40),
+    0 0 34px rgba(90,150,255,0.30);
+}
+
+.story-add-btn__text{
+  text-transform: uppercase;
+  letter-spacing: 0.06em; /* refined: less tracking */
+  font-weight: 640; /* strong but slightly softer */
+}
+
+.story-cancel-btn{
+  background: rgba(0,0,0,0.34);
+  border: 1px solid rgba(255,255,255,0.20);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: rgba(255,255,255,0.90);
+  transition: background-color 180ms ease, border-color 180ms ease, transform 160ms ease, color 180ms ease;
+}
+
+.story-cancel-btn:hover{
+  background: rgba(0,0,0,0.40);
+  border-color: rgba(255,255,255,0.24);
+  color: rgba(255,255,255,0.94);
+}
+
+.story-cancel-btn:active{
+  transform: scale(0.99);
+  background: rgba(0,0,0,0.44);
+}
+
+.story-post-btn{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 0 0 1px rgba(120,170,255,0.10),
+    0 0 18px rgba(90,150,255,0.16);
+  transition: transform 160ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+}
+
+.story-post-btn:hover{
+  border-color: rgba(255,255,255,0.16);
+  box-shadow:
+    0 0 0 1px rgba(120,170,255,0.14),
+    0 0 26px rgba(90,150,255,0.24);
+}
+
+.story-post-btn:active{
+  transform: scale(0.985);
+  box-shadow:
+    0 0 0 1px rgba(120,170,255,0.16),
+    0 0 30px rgba(90,150,255,0.28);
+}

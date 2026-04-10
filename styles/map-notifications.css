@@ -1,0 +1,40 @@
+/* Map notification bell (below Filters): polish ONLY this control so it matches
+   the bottom-right FAB family (size, spacing rhythm, crisp icon, neutral depth).
+   Target ONLY the bell below Filters (MapView adds .vibes-map-notifications-btn).
+*/
+
+.vibes-map-notifications-btn {
+  /* Match the bottom-right FAB family so all right-side controls share one axis. */
+  width: 58px;
+  height: 58px;
+  border-radius: 9999px;
+
+  /* Match the right-side stack's neutral dark glass. */
+  background: rgba(0, 0, 0, 0.44);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.46),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 18px rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* Vertical spacing is controlled by the parent column (gap). */
+  margin-top: 0;
+
+  background-image: none !important;
+  filter: none !important;
+}
+
+/* Make the bell glyph a bit smaller + crisper inside the circle. */
+.vibes-map-notifications-btn .vibes-map-fab__icon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.05;
+  shape-rendering: geometricPrecision;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.55));
+}

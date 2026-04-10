@@ -1,0 +1,9 @@
+{
+  "name": "City Pulse",
+  "short_name": "City Pulse",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}
