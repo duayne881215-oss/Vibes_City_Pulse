@@ -22,14 +22,6 @@ export function DailyPulseCard({ data, loading = false, onRefresh }: DailyPulseC
 
   return (
     <View style={styles.card}>
-      {/* Premium glows */}
-      <View style={styles.glowGreen} />
-      <View style={styles.glowRed} />
-      <View style={styles.glowBlue} />
-      <View style={styles.glowWhite} />
-
-      {/* Futuristic border overlay */}
-      <View pointerEvents="none" style={styles.cardBorderOverlay} />
 
       <View style={styles.headerRow}>
         <View>
@@ -75,71 +67,24 @@ const styles = StyleSheet.create({
   card: {
     position: 'relative',
     overflow: 'hidden',
-    borderRadius: 28,
-    borderWidth: 1.5,
-    borderColor: 'rgba(110,231,183,0.22)',
-    backgroundColor: 'rgba(9,17,32,0.93)',
+    borderRadius: 26,
+    borderWidth: 1,
+    borderColor: 'rgba(148,163,184,0.18)',
+    backgroundColor: 'rgba(7,13,26,0.88)',
     paddingHorizontal: 20,
     paddingVertical: 22,
     marginTop: 14,
     marginBottom: 18,
-    shadowColor: '#22c55e',
-    shadowOpacity: 0.18,
-    shadowRadius: 32,
-    shadowOffset: { width: 0, height: 6 },
+    shadowColor: 'transparent',
+    shadowOpacity: 0,
+    shadowRadius: 0,
+    shadowOffset: { width: 0, height: 0 },
   },
-  cardBorderOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    borderRadius: 28,
-    borderWidth: 1.5,
-    borderColor: 'rgba(59,130,246,0.13)',
-    opacity: 0.7,
-    zIndex: 2,
-  },
-  glowGreen: {
-    position: 'absolute',
-    left: -80,
-    top: -70,
-    width: 180,
-    height: 180,
-    borderRadius: 90,
-    backgroundColor: 'rgba(34,197,94,0.18)',
-    zIndex: 0,
-  },
-  glowRed: {
-    position: 'absolute',
-    right: -90,
-    bottom: -80,
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    backgroundColor: 'rgba(255,64,88,0.13)',
-    zIndex: 0,
-  },
-  glowBlue: {
-    position: 'absolute',
-    left: '40%',
-    top: -60,
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    backgroundColor: 'rgba(59,130,246,0.10)',
-    zIndex: 0,
-  },
-  glowWhite: {
-    position: 'absolute',
-    right: 10,
-    top: 10,
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: 'rgba(255,255,255,0.07)',
-    zIndex: 0,
-  },
+  cardBorderOverlay: { display: 'none' },
+  glowGreen: { display: 'none' },
+  glowRed: { display: 'none' },
+  glowBlue: { display: 'none' },
+  glowWhite: { display: 'none' },
   headerRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -288,14 +233,14 @@ const styles = StyleSheet.create({
     minHeight: 34,
     borderRadius: 999,
     borderWidth: 1.5,
-    borderColor: 'rgba(59,130,246,0.22)',
-    backgroundColor: 'rgba(30,64,175,0.48)',
+    borderColor: 'rgba(147,197,253,0.28)',
+    backgroundColor: 'rgba(30,64,175,0.38)',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 14,
-    shadowColor: '#3b82f6',
-    shadowOpacity: 0.13,
-    shadowRadius: 7,
+    shadowColor: 'transparent',
+    shadowOpacity: 0,
+    shadowRadius: 0,
     shadowOffset: { width: 0, height: 0 },
   },
   refreshText: {

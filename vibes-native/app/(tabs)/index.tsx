@@ -703,52 +703,100 @@ const renderTopBrandHeader = (options?: { compact?: boolean; showStory?: boolean
   );
 };
 
-  const renderHome = () => {
-    return (
-      <View style={styles.homeRoot}>
-        {renderTopBrandHeader()}
+const renderHome = () => {
+  return (
+    <View style={styles.homeRoot}>
+      {renderTopBrandHeader()}
 
-        <View style={styles.homeBodyCenter}>
-          <DailyPulseCard data={dailyPulseData} loading={dailyPulseLoading} onRefresh={loadDailyPulse} />
+      <View style={styles.homeHeroCard}>
 
-          <View style={styles.vibesAiPanel}>
-            <View style={styles.vibesAiOrbWrap}>
-              <Text style={styles.vibesAiOrbText}>AI</Text>
-            </View>
-
-            <View style={styles.vibesAiCopy}>
-              <Text style={styles.vibesAiKicker}>VIBES AI</Text>
-              <Text style={styles.vibesAiTitle}>Personalization is active</Text>
-              <Text style={styles.vibesAiSubtitle}>
-                Your live activity is teaching Vibes what people, places and moments fit you best.
-              </Text>
-            </View>
+        <View style={styles.homeHeroTopRow}>
+          <View style={styles.homeHeroLivePill}>
+            <View style={styles.homeHeroLiveDot} />
+            <Text style={styles.homeHeroLiveText}>CITY IS LIVE</Text>
           </View>
 
-          <View style={styles.card}>
-            <Text style={styles.cardText}>Vibes City Pulse is live.</Text>
-            <Text style={styles.cardSubText}>Search, dating, messages, profile and map are ready to open.</Text>
+          <View style={styles.homeHeroAiPill}>
+            <Text style={styles.homeHeroAiText}>AI ON</Text>
+          </View>
+        </View>
+
+        <Text style={styles.homeHeroTitle}>Your city is moving.</Text>
+        <Text style={styles.homeHeroSubtitle}>
+          Discover nearby people, live energy and moments around Miami Beach.
+        </Text>
+
+        <View style={styles.homeHeroStatsRow}>
+          <View style={styles.homeHeroStatBox}>
+            <Text style={styles.homeHeroStatValue}>7</Text>
+            <Text style={styles.homeHeroStatLabel}>Live vibes</Text>
           </View>
 
-          <View style={styles.actionsWrap}>
-            <Pressable
-              style={({ pressed }) => [styles.buttonPrimary, pressed && styles.buttonPressed]}
-              onPress={() => setActiveScreen('map')}
-            >
-              <Text style={styles.buttonPrimaryText}>Open Map</Text>
-            </Pressable>
+          <View style={styles.homeHeroStatBox}>
+            <Text style={styles.homeHeroStatValue}>3</Text>
+            <Text style={styles.homeHeroStatLabel}>Nearby</Text>
+          </View>
 
-            <Pressable
-              style={({ pressed }) => [styles.buttonSecondary, pressed && styles.buttonPressed]}
-              onPress={() => setActiveScreen('search')}
-            >
-              <Text style={styles.buttonSecondaryText}>Search Vibes</Text>
-            </Pressable>
+          <View style={styles.homeHeroStatBox}>
+            <Text style={styles.homeHeroStatValue}>92</Text>
+            <Text style={styles.homeHeroStatLabel}>Energy</Text>
           </View>
         </View>
       </View>
-    );
-  };
+
+      <DailyPulseCard data={dailyPulseData} loading={dailyPulseLoading} onRefresh={loadDailyPulse} />
+
+      <View style={styles.aiInsightCard}>
+        <View style={styles.aiInsightDot} />
+        <View style={styles.aiInsightTextWrap}>
+          <Text style={styles.aiInsightKicker}>AI INSIGHT</Text>
+          <Text style={styles.aiInsightTitle}>Your city rhythm is being learned.</Text>
+          <Text style={styles.aiInsightSubtitle}>
+            Vibes AI uses your live signals to personalize people, places and moments around you.
+          </Text>
+        </View>
+      </View>
+
+      <View style={styles.homeQuickActionsGrid}>
+        <Pressable
+          style={({ pressed }) => [styles.homeQuickActionCard, pressed && styles.buttonPressed]}
+          onPress={() => setActiveScreen('map')}
+        >
+          <Text style={styles.homeQuickActionIcon}>◎</Text>
+          <Text style={styles.homeQuickActionTitle}>Open Map</Text>
+          <Text style={styles.homeQuickActionSub}>See live energy</Text>
+        </Pressable>
+
+        <Pressable
+          style={({ pressed }) => [styles.homeQuickActionCard, pressed && styles.buttonPressed]}
+          onPress={() => setActiveScreen('dating')}
+        >
+          <Text style={styles.homeQuickActionIcon}>♡</Text>
+          <Text style={styles.homeQuickActionTitle}>Dating</Text>
+          <Text style={styles.homeQuickActionSub}>Meet nearby</Text>
+        </Pressable>
+
+        <Pressable
+          style={({ pressed }) => [styles.homeQuickActionCard, pressed && styles.buttonPressed]}
+          onPress={() => setActiveScreen('search')}
+        >
+          <Text style={styles.homeQuickActionIcon}>⌕</Text>
+          <Text style={styles.homeQuickActionTitle}>Search</Text>
+          <Text style={styles.homeQuickActionSub}>Find vibes</Text>
+        </Pressable>
+
+        <Pressable
+          style={({ pressed }) => [styles.homeQuickActionCard, pressed && styles.buttonPressed]}
+          onPress={() => setActiveScreen('messages')}
+        >
+          <Text style={styles.homeQuickActionIcon}>▱</Text>
+          <Text style={styles.homeQuickActionTitle}>Messages</Text>
+          <Text style={styles.homeQuickActionSub}>Open chats</Text>
+        </Pressable>
+      </View>
+    </View>
+  );
+};
 
   const renderMap = () => {
     const handleMapPointPress = (point: (typeof mapPoints)[number]) => {
@@ -1469,6 +1517,156 @@ const renderTopBrandHeader = (options?: { compact?: boolean; showStory?: boolean
 }
 
 const styles = StyleSheet.create({
+  homeHeroCard: {
+    width: '100%',
+    borderRadius: 26,
+    borderWidth: 1,
+    borderColor: 'rgba(148,163,184,0.18)',
+    backgroundColor: 'rgba(7,13,26,0.88)',
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+    marginBottom: 14,
+    overflow: 'hidden',
+    shadowColor: '#000000',
+    shadowOpacity: 0.28,
+    shadowRadius: 18,
+    shadowOffset: { width: 0, height: 10 },
+    elevation: 4,
+  },
+  homeHeroGlowOne: {
+    display: 'none',
+  },
+  homeHeroGlowTwo: {
+    display: 'none',
+  },
+  homeHeroTopRow: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 14,
+  },
+  homeHeroLivePill: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(34,197,94,0.34)',
+    backgroundColor: 'rgba(8,30,22,0.62)',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+  },
+  homeHeroLiveDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#22c55e',
+  },
+  homeHeroLiveText: {
+    color: 'rgba(220,252,231,0.94)',
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 1.2,
+  },
+  homeHeroAiPill: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(147,197,253,0.26)',
+    backgroundColor: 'rgba(15,23,42,0.72)',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  homeHeroAiText: {
+    color: 'rgba(219,234,254,0.92)',
+    fontSize: 10,
+    fontWeight: '900',
+    letterSpacing: 1.2,
+  },
+  homeHeroTitle: {
+    width: '100%',
+    color: '#ffffff',
+    fontSize: 28,
+    lineHeight: 33,
+    fontWeight: '900',
+    letterSpacing: -0.8,
+    marginBottom: 7,
+    textAlign: 'left',
+  },
+  homeHeroSubtitle: {
+    width: '100%',
+    color: 'rgba(203,213,225,0.74)',
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '700',
+    textAlign: 'left',
+  },
+  homeHeroStatsRow: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    gap: 8,
+    marginTop: 15,
+  },
+  homeHeroStatBox: {
+    flex: 1,
+    minWidth: 0,
+    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: 'rgba(148,163,184,0.16)',
+    backgroundColor: 'rgba(2,8,20,0.54)',
+    paddingVertical: 10,
+    paddingHorizontal: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  homeHeroStatValue: {
+    color: '#ffffff',
+    fontSize: 20,
+    lineHeight: 23,
+    fontWeight: '900',
+  },
+  homeHeroStatLabel: {
+    color: 'rgba(203,213,225,0.62)',
+    fontSize: 10,
+    lineHeight: 13,
+    fontWeight: '800',
+    marginTop: 2,
+    textAlign: 'center',
+  },
+  homeQuickActionsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+    marginTop: 4,
+    marginBottom: 18,
+  },
+  homeQuickActionCard: {
+    width: '48.5%',
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(148,163,184,0.16)',
+    backgroundColor: 'rgba(7,13,26,0.82)',
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+  },
+  homeQuickActionIcon: {
+    color: 'rgba(219,234,254,0.9)',
+    fontSize: 20,
+    fontWeight: '900',
+    marginBottom: 8,
+  },
+  homeQuickActionTitle: {
+    color: '#ffffff',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  homeQuickActionSub: {
+    color: 'rgba(203,213,225,0.62)',
+    fontSize: 11,
+    fontWeight: '700',
+    marginTop: 3,
+  },
   vibesAiPanel: {
     borderRadius: 22,
     borderWidth: 1,
